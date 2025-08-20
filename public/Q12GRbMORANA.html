@@ -5,16 +5,33 @@
 <html>
 <body>
 
-    <h2> Q1 2nd Graded Exercise submitted by Jan Andrew D. Morana of Rubidium</h2>
+    <h2>Q1 2nd Graded Exercise submitted by Jan Andrew D. Morana of Rubidium</h2>
 
-    <!-- Enter your tags below until the script tag -->
-    
+    <label for="mealPrice">Meal Price:</label>
+    <input type="text" id="mealPrice" name="Meal Price"><br><br>
+
+    <label for="tip">Tip:</label>
+    <input type="text" id="tip" name="Tip"><br><br>
+
+    <label for="serviceCharge">Service Charge (%):</label>
+    <input type="text" id="serviceCharge" name="Service Charge"><br><br>
+
+    <button onclick="totalMeal()">Accept Input</button>
+
+    <p id="output"></p>
 
     <script>
         function totalMeal() {
-              // place your JS code here
+
+            const mp = parseFloat(document.getElementById('mealPrice').value);
+            const tip = parseFloat(document.getElementById('tip').value);
+            const scPercent = parseFloat(document.getElementById('serviceCharge').value);
+
+            const serviceChargeAmount = (scPercent / 100) * mp;
             
-         
+            const totalCost = mp + tip + serviceChargeAmount;
+
+            document.getElementById('output').textContent = "Total Meal: " + totalCost.toFixed(2);
         }
     </script>
 
