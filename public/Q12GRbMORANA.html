@@ -7,31 +7,30 @@
 
     <h2>Q1 2nd Graded Exercise submitted by Jan Andrew D. Morana of Rubidium</h2>
 
-    <label for="mealPrice">Meal Price:</label>
-    <input type="text" id="mealPrice" name="Meal Price"><br><br>
+    <label for="MealPrice">Meal Price:</label>
+    <input type="text" id="MealPrice" name="Meal Price"><br>
 
-    <label for="tip">Tip:</label>
-    <input type="text" id="tip" name="Tip"><br><br>
+    <label for="Tip">Tip:</label>
+    <input type="text" id="Tip" name="Tip"><br>
 
-    <label for="serviceCharge">Service Charge (%):</label>
-    <input type="text" id="serviceCharge" name="Service Charge"><br><br>
+    <label for="ServiceCharge">Service Charge:</label>
+    <input type="text" id="ServiceCharge" name="Service Charge"><br>
 
     <button onclick="totalMeal()">Accept Input</button>
 
-    <p id="output"></p>
+    <p id="TotalMeal"></p>
+    <label for="TotalMeal">Total Meal:</label>
 
     <script>
         function totalMeal() {
 
-            const mp = parseFloat(document.getElementById('mealPrice').value);
-            const tip = parseFloat(document.getElementById('tip').value);
-            const scPercent = parseFloat(document.getElementById('serviceCharge').value);
+            const mp = parseFloat(document.getElementById('MealPrice').value);
+            const tip = parseFloat(document.getElementById('Tip').value);
+            const Percentofsc = parseFloat(document.getElementById('ServiceCharge').value);
 
-            const serviceChargeAmount = (scPercent / 100) * mp;
-            
-            const totalCost = mp + tip + serviceChargeAmount;
+            const totalCost = mp + tip + (Percentofsc / 100 * mp);
 
-            document.getElementById('output').textContent = "Total Meal: " + totalCost.toFixed(2);
+            document.getElementById('TotalMeal').textContent = totalCost.toFixed(2);
         }
     </script>
 
