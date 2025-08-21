@@ -1,0 +1,48 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+   <h2> Q1 3rd Graded Exercise submitted by Jan Andrew D. Morana of Rubidium </h2>
+
+    Guess the number : ****
+
+    <p></p>
+    The number is from 1 to 100
+
+    <p></p>
+    <label for="EnterYourGuess">Enter your guess :</label>
+    <input type="text" id="EnterYourGuess">
+
+    <p></p>
+    <button onclick="checkIt()">Accept Input</button>
+
+    <p></p>
+    <label for="Result">Result: </label>
+    <output type="text" id="Result">
+  
+    <script>
+       var dNumber = Math.floor(Math.random() * 100) + 1; // generates a number from 1  to 100 when the page loads
+
+        function checkIt() {
+              
+        var Placeholder = document.getElementById("EnterYourGuess").value;
+
+            var EnterYourGuess = parseInt(Placeholder);
+
+            var Result = document.getElementById("Result");
+
+            if (EnterYourGuess < dNumber) {
+                resultDisplay.textContent = "Higher";
+            } else if (EnterYourGuess > dNumber) {
+                resultDisplay.textContent = "Lower";
+            } else {
+                resultDisplay.textContent = "You are correct!";
+            }            
+        }  
+    </script>
+
+</body>
+</html>
