@@ -24,7 +24,7 @@
     <output type="text" id="Result">
   
     <script>
-       var dNumber = Math.floor(Math.random() * 100) + 1; // generates a number from 1  to 100 when the page loads
+       var dNumber = Math.floor(Math.random() * 100) + 1;
 
         function checkIt() {
               
@@ -35,11 +35,11 @@
             var Result = document.getElementById("Result");
 
             if (EnterYourGuess < dNumber) {
-                resultDisplay.textContent = "Higher";
+                Result.textContent = "Higher";
             } else if (EnterYourGuess > dNumber) {
-                resultDisplay.textContent = "Lower";
+                Result.textContent = "Lower";
             } else {
-                resultDisplay.textContent = "You are correct!";
+                Result.textContent = "You are correct!";
             }            
         }  
     </script>
