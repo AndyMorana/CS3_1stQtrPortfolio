@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Personal Homepage</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Jan Andrew D. Morana (Rubidium, 08/30/2025</h1>
+    <p>"That" - Sun Tzu</p>
+  </header>
+
+  <section>
+    <h2>About Me</h2>
+    <p>Student of Pisay B2029; I am 14 years old; S21 - IL19 - Rb17; AGS Graduate; Usually exuberant :P</p>
+  </section>
+
+  <section>
+    <h2>My Interests</h2>
+    <ul>
+      <li>Reading books</li>
+      <li>Playing video games</li>
+      <li>Talking to friends</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Jan Andrew D. Morana</p>
+  </footer>
+</body>
+</html>
