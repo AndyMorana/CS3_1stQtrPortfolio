@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guess My Word</title>
+  <style>
+    body {
+      background-image: url('https://i.ytimg.com/vi/yllu5dSBF4g/maxresdefault.jpg'); /* Path to your uploaded image */
+      background-size: cover;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #00FF00;
+    }
+    #wordDisplay {
+      font-size: 2em;
+      letter-spacing: 5px;
+    }
+    #guessInput {
+      font-size: 1.5em;
+      padding: 10px;
+      margin: 10px;
+      width: 50px;
+      text-align: center;
+    }
+    #message {
+      font-size: 1.5em;
+      margin-top: 10px;
+    }
+    .correct {
+      color: #28a745;
+    }
+    .incorrect {
+      color: #dc3545;
+    }
+    .guessedLetters {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #ffeb3b;
+    }
+    button {
+      font-size: 1.5em;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Guess My Word</h1>
+  <p id="wordDisplay"></p>
+  <input type="text" id="guessInput" maxlength="1">
+  <button onclick="makeGuess()">Guess</button>
+  <p id="message"></p>
+  <div class="guessedLetters">
+    <p>Guessed Letters: <span id="guessedLettersDisplay">None</span></p>
+  </div>
+  <button onclick="playAgain()" style="display: none;">Play Again</button>
+
+  <script>
+    let secretWord = ["a", "m", "a", "z", "i", "n", "g", "a", "n", "d", "y"];
+    let guessedWord = ["_", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_"];
+    let guessedLetters = [];
+
+    document.getElementById("wordDisplay").textContent = guessedWord.join(" ");
+    
+    function makeGuess() {
+      let guess = document.getElementById("guessInput").value.toLowerCase();
+      let correct = false;
+      
+      if (guessedLetters.includes(guess)) {
+        document.getElementById("message").textContent = "❌ You already guessed this letter.";
+        return;
+      }
+      
+      guessedLetters.push(guess);
+      document.getElementById("guessedLettersDisplay").textContent = guessedLetters.join(", ");
+      
+      for (let i = 0; i < secretWord.length; i++) {
+        if (secretWord[i] === guess) {
+          guessedWord[i] = guess;
+          correct = true;
+        }
+      }
+
+      document.getElementById("wordDisplay").textContent = guessedWord.join(" ");
+      document.getElementById("message").textContent = correct ? "✅ Correct!" : "❌ Try again.";
+      document.getElementById("message").className = correct ? "correct" : "incorrect";
+      
+      document.getElementById("guessInput").value = "";
+
+      if (!guessedWord.includes("_")) {
+        document.getElementById("message").textContent = "🎉 You guessed the word!";
+        document.querySelector("button[onclick='makeGuess()']").style.display = "none";
+        document.querySelector("button[onclick='playAgain()']").style.display = "block";
+      }
+    }
+
+    function playAgain() {
+      secretWord = ["a", "m", "a", "z", "i", "n", "g", "a", "n", "d", "y"];
+      guessedWord = ["_", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_"];
+      guessedLetters = [];
+      document.getElementById("wordDisplay").textContent = guessedWord.join(" ");
+      document.getElementById("guessedLettersDisplay").textContent = "None";
+      document.getElementById("message").textContent = "";
+      document.querySelector("button[onclick='makeGuess()']").style.display = "inline-block";
+      document.querySelector("button[onclick='playAgain()']").style.display = "none";
+    }
+  </script>
+</body>
+</html>
